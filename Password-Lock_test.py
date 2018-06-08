@@ -22,3 +22,13 @@ class TestContact(unittest.TestCase):
         tearDown method that does clean up after each test case has run.
         '''
         Contact.contact_list = []
+
+    def test_init(self):
+        '''
+        test_init test case to test if the object is initialized properly
+        '''
+
+        self.assertEqual(self.new_contact.first_name,"James")
+        self.assertEqual(self.new_contact.last_name,"Muriuki")
+        self.assertEqual(self.new_contact.number,"0712345678")
+        self.assertEqual(self.new_contact.email,"james@ms.com")
