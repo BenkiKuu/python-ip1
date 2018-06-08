@@ -18,3 +18,10 @@ class Contact:
         self.last_name = last_name
         self.number = number
         self.email = email
+
+    def delete_contact(self):
+
+        '''
+        delete_contact method
+        '''
+        Contact.contact_list.remove(self)
