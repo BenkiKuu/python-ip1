@@ -53,7 +53,7 @@ def main():
     print('\n')
 
     while True:
-            print("Use these short codes : nw - New User, du - display users, fu -find a user, ex -exit the Password Locker")
+            print("Use these short codes : nw - New User, du - display users, log -log in, ex -exit the Password Locker")
 
             short_code = input().lower()
 
@@ -79,7 +79,7 @@ def main():
 
             elif short_code == 'du':
 
-                if display_users(user):
+                if display_users():
                         print("Here is a list of all users")
                         print('\n')
 
@@ -92,20 +92,21 @@ def main():
                         print("There are no users saved yet")
                         print('\n')
 
-            elif short_code == 'fu':
+            elif short_code == 'log':
 
                     print("Please enter your Password")
 
                     search_password = input()
-                    if check_existing_userss(search_password):
+                    if check_existing_users(search_password):
                             search_user = find_user(search_password)
                             print(f"{search_user.first_name} {search_user.last_name}")
+                            print('You are Loged in')
                             print('-' * 20)
 
                             # print(f"Phone number.......{search_contact.number}")
                             # print(f"Email address.......{search_contact.email}")
                     else:
-                            print("That contact does not exist")
+                            print("You have no account")
 
             elif short_code == "ex":
                     print("Bye .......")
