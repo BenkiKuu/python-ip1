@@ -1,48 +1,48 @@
 #!/usr/bin/env python3.6
-from Password_Lock import Contact
+from Password_Lock import User
 
-def create_contact(fname,lname,phone,email):
+def create_contact(fname,lname,pword):
     '''
-    Function to create a new contact
+    Function to create a new User
     '''
-    new_contact = Contact(fname,lname,phone,email)
-    return new_contact
+    new_user = User(fname,lname,pword)
+    return new_user
 
-def save_contacts(contact):
+def save_users(user):
     '''
-    Function to save contact
+    Function to save user
     '''
-    contact.save_contact()
+    user.save_user()
 
-def del_contact(contact):
+def del_user(user):
     '''
-    Function to delete a contact
+    Function to delete a user
     '''
-    contact.delete_contact()
+    user.delete_user()
 
-def find_contact(number):
+def find_user(password):
     '''
-    Function that finds a contact by number and returns the contact
+    Function that finds a user by password and returns the user
     '''
-    return Contact.find_by_number(number)
+    return User.find_by_password(password)
 
-def display_contacts(contact):
+def display_users(user):
     '''
-    method that returns the contact list
+    method that returns the user list
     '''
-    return cls.contact_list
+    return cls.user_list
 
-def check_existing_contacts(number):
+def check_existing_users(password):
     '''
-    Function that check if a contact exists with that number and return a Boolean
+    Function that check if a user exists with that password and return a Boolean
     '''
-    return Contact.contact_exist(number)
+    return User.user_exist(password)
 
-def check_existing_contacts(number):
-    '''
-    Function that check if a contact exists with that number and return a Boolean
-    '''
-    return Contact.contact_exist(number)
+# def check_existing_users(password):
+#     '''
+#     Function that check if a user exists with that password and return a Boolean
+#     '''
+#     return User.user_exist(password)
 
 
 def main():
@@ -53,12 +53,12 @@ def main():
     print('\n')
 
     while True:
-            print("Use these short codes : cc - create a new contact, dc - display contacts, fc -find a contact, ex -exit the contact list ")
+            print("Use these short codes : nw - New User, du - display users, fu -find a user, ex -exit the Password Locker")
 
             short_code = input().lower()
 
-            if short_code == 'cc':
-                print("New Contact")
+            if short_code == 'nw':
+                print("New User")
                 print("-"*10)
 
                 print ("First name ....")
@@ -67,36 +67,34 @@ def main():
                 print("Last name ...")
                 l_name = input()
 
-                print("Phone number ...")
-                p_number = input()
-
-                print("Email address ...")
-                e_address = input()
+                print("Password ...")
+                pword = input()
 
 
-                save_contacts(create_contact(f_name,l_name,p_number,e_address)) # create and save new contact.
+
+                save_contacts(create_contact(f_name,l_name,pword,)) # create and save new contact.
                 print ('\n')
                 print(f"New Contact {f_name} {l_name} created")
                 print ('\n')
 
-            elif short_code == 'dc':
+            elif short_code == 'du':
 
-                if display_contacts(contact):
-                        print("Here is a list of all your contacts")
+                if display_users(user):
+                        print("Here is a list of all users")
                         print('\n')
 
-                        for contact in display_contacts():
-                            print(f"{contact.first_name} {contact.last_name} .....{contact.number}")
+                        for user in display_users():
+                            print(f"{user.first_name} {user.last_name}")
 
                             print('\n')
                 else:
                         print('\n')
-                        print("You dont seem to have any contacts saved yet")
+                        print("There are no users saved yet")
                         print('\n')
 
-            elif short_code == 'fc':
+            elif short_code == 'fu':
 
-                    print("Enter the number you want to search for")
+                    print("Please enter your Password")
 
                     search_number = input()
                     if check_existing_contacts(search_number):
