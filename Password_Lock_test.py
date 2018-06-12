@@ -1,6 +1,6 @@
- import unittest  # Importing the unittest module
- from contact import Contact # Importing the contact class
- import pyperclip
+import unittest  # Importing the unittest module
+from Password_Lock import Contact # Importing the contact class
+import pyperclip
 
 class TestContact(unittest.TestCase):
 
