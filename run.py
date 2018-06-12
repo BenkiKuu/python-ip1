@@ -1,7 +1,7 @@
 #!/usr/bin/env python3.6
 from Password_Lock import User
 
-def create_contact(fname,lname,pword):
+def create_user(fname,lname,pword):
     '''
     Function to create a new User
     '''
@@ -72,7 +72,7 @@ def main():
 
 
 
-                save_user(create_user(f_name,l_name,pword,)) # create and save new contact.
+                save_users(create_user(f_name,l_name,pword,)) # create and save new user.
                 print ('\n')
                 print(f"New User {f_name} {l_name} created")
                 print ('\n')
