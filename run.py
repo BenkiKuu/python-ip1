@@ -72,9 +72,9 @@ def main():
 
 
 
-                save_contacts(create_contact(f_name,l_name,pword,)) # create and save new contact.
+                save_user(create_user(f_name,l_name,pword,)) # create and save new contact.
                 print ('\n')
-                print(f"New Contact {f_name} {l_name} created")
+                print(f"New User {f_name} {l_name} created")
                 print ('\n')
 
             elif short_code == 'du':
@@ -96,14 +96,14 @@ def main():
 
                     print("Please enter your Password")
 
-                    search_number = input()
-                    if check_existing_contacts(search_number):
-                            search_contact = find_contact(search_number)
-                            print(f"{search_contact.first_name} {search_contact.last_name}")
+                    search_password = input()
+                    if check_existing_userss(search_password):
+                            search_user = find_user(search_password)
+                            print(f"{search_user.first_name} {search_user.last_name}")
                             print('-' * 20)
 
-                            print(f"Phone number.......{search_contact.number}")
-                            print(f"Email address.......{search_contact.email}")
+                            # print(f"Phone number.......{search_contact.number}")
+                            # print(f"Email address.......{search_contact.email}")
                     else:
                             print("That contact does not exist")
 
@@ -111,7 +111,7 @@ def main():
                     print("Bye .......")
                     break
             else:
-                    print("I really didn't get that. Please use the short codes")
+                    print("Please use the short codes")
 
 if __name__ == '__main__':
 
